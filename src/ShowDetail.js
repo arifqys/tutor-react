@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-
+import './ShowDetail.css';
 
 function ShowDetail() {
   const { id: showId } = useParams();
@@ -17,10 +17,14 @@ function ShowDetail() {
     <>
       <h1>{data?.name}</h1>
       <img src={data?.image?.medium} alt={data?.name} />
-      <table>
+      <table className="table">
         <tr>
           <td>Languange:</td>
           <td>{data?.language}</td>
+        </tr>
+        <tr>
+          <td>Genres:</td>
+          <td>{data?.genres.map(genre => genre)}</td>
         </tr>
       </table>
     </>
