@@ -1,9 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Todos from "./Todos";
 
 function TodoList() {
   const [input, setInput] = useState('');
   const [todos, setTodos] = useState([]);
+
+  const ref = useRef();
+
+  useEffect(() => {
+    ref.current.focus();
+  }, []);
 
   const inputHandler = (e) => {
     setInput(e.target.value);
@@ -16,7 +22,7 @@ function TodoList() {
 
   return (
     <div className="App">
-      <input type="text" value={input} onChange={inputHandler} />
+      <input ref={ref} type="text" value={input} onChange={inputHandler} />
 
       <button onClick={addInputHandler}>Add</button>
 

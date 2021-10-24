@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import TodoList from './TodoList';
 import ShowsCatalogue from './ShowsCatalogue';
+import ShowDetail from './ShowDetail';
 
 function App() {
   return (
@@ -27,8 +28,11 @@ function App() {
         <Route path="/" exact>
           <TodoList />
         </Route>
-        <Route path="/shows">
+        <Route path="/shows" exact>
           <ShowsCatalogue />
+        </Route>
+        <Route path="/shows/:id">
+          <ShowDetail />
         </Route>
       </Switch>
       </div>
